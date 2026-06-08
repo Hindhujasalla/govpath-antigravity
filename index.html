@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MFGWG2NS');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AspirantGovPathAI | Preparation Guide</title>
+  <meta name="description"
+    content="Explore Indian government job exams — UPSC, SSC CGL, SBI PO, RRB NTPC, NDA and more. Get complete details on syllabus, eligibility, salary, exam pattern and preparation tips." />
+  <meta name="keywords"
+    content="government jobs India, UPSC preparation, SSC CGL, SBI PO, RRB NTPC, NDA exam, government job syllabus" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFGWG2NS"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+
+  <div id="loginOverlay" class="login-overlay">
+    <div class="login-card">
+      <div class="login-logo">🏛️</div>
+      <h1>Welcome to GovPath</h1>
+      <p>Your ultimate guide to government job preparation. Please sign in to continue.</p>
+      <button id="btnLoginGoogle" class="btn-login-google">
+        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+        Sign in with Google
+      </button>
+      <div class="login-footer">
+        Secure authentication powered by Google
+      </div>
+    </div>
+  </div>
+
+  <div id="appContainer" style="display: none;">
+    <!-- ─── HEADER ──────────────────────────────────────── -->
+    <header>
+      <div class="header-inner">
+        <div class="logo" id="logo">
+          <div class="logo-icon">🏛️</div>
+          <div class="logo-text">
+            GovPath
+            <span class="logo-sub">GOVERNMENT JOB GUIDE</span>
+          </div>
+        </div>
+
+        <div class="header-search">
+          <span class="search-icon">🔍</span>
+          <input type="search" id="searchInput" placeholder="Search jobs — UPSC, SSC, Banking, Railway…"
+            autocomplete="off" />
+          <div class="search-suggestions" id="searchSuggestions"></div>
+        </div>
+
+        <div class="header-actions">
+          <button class="btn-mock-tests" id="btnMockTestsNav">
+            ✍️ Mock Tests
+          </button>
+          <button class="btn-bookmarks" id="btnBookmarks">
+            ★ Saved
+            <span class="bookmark-count" id="bookmarkCount">0</span>
+          </button>
+
+          <div class="user-profile" id="userProfile">
+            <img src="" alt="User" id="userAvatar" class="user-avatar">
+            <div class="user-dropdown" id="userDropdown">
+              <div class="user-info">
+                <div id="userName" class="user-name">Guest User</div>
+                <div id="userEmail" class="user-email">guest@example.com</div>
+              </div>
+              <hr>
+              <button id="btnLogout" class="btn-logout">
+                <span>🚪</span> Sign Out
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ─── HERO ─────────────────────────────────────────── -->
+    <section class="hero">
+      <div class="hero-badge">
+        <span class="live-dot"></span> Updated for 2025–26 Recruitment Cycle
+      </div>
+      <h1>Complete Guide to<br />Government Jobs in India</h1>
+      <p>
+        Select any government exam and instantly access the full syllabus, eligibility criteria,
+        salary, exam pattern, vacancies and expert preparation tips — all in one place.
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">15+</span>
+          <span class="stat-label">Exams Covered</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">6</span>
+          <span class="stat-label">Categories</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">2L+</span>
+          <span class="stat-label">Annual Vacancies</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">Free</span>
+          <span class="stat-label">Always</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── MAIN ──────────────────────────────────────────── -->
+    <main class="main">
+
+      <!-- Category filters -->
+      <div id="categories" class="categories"></div>
+
+      <!-- Section header -->
+      <div class="section-header">
+        <div class="section-title">Government Exams</div>
+        <div class="jobs-count" id="jobsCount">Loading…</div>
+      </div>
+
+      <!-- Jobs grid -->
+      <div id="jobsGrid" class="jobs-grid"></div>
+
+      <!-- No results -->
+      <div id="noResults" class="no-results">
+        <div class="no-results-icon">🔍</div>
+        <h3>No jobs found</h3>
+        <p>Try a different search term or select a different category.</p>
+      </div>
+
+    </main>
+
+    <!-- ─── FOOTER ────────────────────────────────────────── -->
+    <footer>
+      <p>Built with ❤️ for government job aspirants &nbsp;|&nbsp; Data sourced from <span>official government
+          portals</span></p>
+      <p style="margin-top:6px;font-size:12px">Always verify details from the official notification before applying.</p>
+    </footer>
+
+    <!-- ─── MODAL ─────────────────────────────────────────── -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div id="modalContent"></div>
+    </div>
+
+    <!-- ─── BOOKMARKS PANEL ───────────────────────────────── -->
+    <div class="bookmarks-panel" id="bookmarksPanel">
+      <div class="bookmarks-panel-header">
+        <div class="bookmarks-panel-title">★ Saved Jobs</div>
+        <button class="btn-close-panel" id="btnCloseBookmarks">✕</button>
+      </div>
+      <div class="bookmarks-list" id="bookmarksList">
+        <div class="empty-bookmarks">
+          <div class="empty-bookmarks-icon">☆</div>
+          <p>No saved jobs yet.<br>Tap ☆ on any job to save it.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── AI CHAT WIDGET ────────────────────────────────── -->
+    <div class="ai-chat-fab" id="aiChatFab" title="Ask AI Assistant">
+      <div class="fab-icon">✨</div>
+    </div>
+
+    <div class="ai-chat-window" id="aiChatWindow">
+      <div class="ai-chat-header">
+        <div class="ai-chat-header-info">
+          <div class="ai-avatar">✨</div>
+          <div>
+            <div class="ai-title">GovPath AI Guide</div>
+            <div class="ai-subtitle">Ask me anything!</div>
+          </div>
+        </div>
+        <button class="btn-close-chat" id="btnCloseChat">✕</button>
+      </div>
+
+      <div class="ai-chat-messages" id="aiChatMessages">
+        <div class="ai-message ai-received">
+          Hi there! 👋 I'm your AI guide for government job preparation. Want to know about syllabuses, exam patterns,
+          or
+          salaries? Just ask!
+        </div>
+      </div>
+
+      <div class="ai-chat-input-area">
+        <div class="ai-input-wrapper">
+          <input type="text" id="aiChatInput" placeholder="Type your question..." autocomplete="off" />
+          <button id="aiChatSend" class="btn-send-chat" disabled>
+            ➤
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── MOCK TEST SYSTEM ──────────────────────────────── -->
+    <div id="mockTestOverlay" class="mock-test-overlay" style="display: none;">
+      <div class="mock-test-container">
+        <div class="mock-header">
+          <div class="mock-header-info">
+            <div class="mock-logo">✍️</div>
+            <div>
+              <div class="mock-score-header" id="testTitle">Mock Test Portal</div>
+              <div class="mock-subtitle" id="testSubtitle">Select a job to begin your preparation</div>
+            </div>
+          </div>
+          <div class="mock-timer" id="mockTimer" style="display: none;">
+            ⏱️ <span id="timerDisplay">00:00</span>
+          </div>
+          <button class="btn-close-mock" id="btnCloseMock">✕</button>
+        </div>
+
+        <div id="mockLanding" class="mock-content active">
+          <div class="mock-portal-center">
+            <div class="mock-welcome-card">
+              <h2>Welcome to the Test Portal</h2>
+              <p>Sharpen your skills with our exam-specific mock tests. Practise, improve, and succeed!</p>
+
+              <div class="job-selection-form">
+                <div class="form-group">
+                  <label for="jobSelect">Select the exam you're preparing for:</label>
+                  <select id="jobSelect" class="form-control">
+                    <option value="">-- Click to choose a job --</option>
+                  </select>
+                </div>
+                <button id="btnStartTest" class="btn-primary-large" disabled>Start Exam</button>
+              </div>
+            </div>
+
+            <div class="recent-results-section">
+              <div class="section-badge">Recent Attempts</div>
+              <div id="resultsList" class="results-list">
+                <div class="empty-state">Your test performance will appear here.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="mockTestInterface" class="mock-content" style="display: none;">
+          <div class="test-layout">
+            <div class="test-main">
+              <div id="questionContainer" class="question-container">
+                <!-- Question will be injected here -->
+              </div>
+              <div class="test-navigation">
+                <button id="btnPrevQue" class="btn-nav">← Previous</button>
+                <div class="que-status">Question <span id="currQueNum">1</span> of <span id="totalQueNum">0</span></div>
+                <button id="btnNextQue" class="btn-nav">Next →</button>
+              </div>
+            </div>
+            <div class="test-sidebar">
+              <div class="sidebar-title">Question Palette</div>
+              <div class="que-palette" id="quePalette">
+                <!-- Question numbers will be injected here -->
+              </div>
+              <button id="btnSubmitTest" class="btn-submit-test">Submit Final Exam</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="mockResult" class="mock-content" style="display: none;">
+          <div class="result-display">
+            <div class="result-header">
+              <div class="result-confetti">🎉</div>
+              <h2>Exam Completed!</h2>
+              <p id="resultSummaryText">You've successfully submitted your responses.</p>
+            </div>
+
+            <div class="result-stats">
+              <div class="stat-box">
+                <div class="stat-label">Your Score</div>
+                <div class="stat-value"><span id="finalScore">0</span> / <span id="maxScore">0</span></div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-label">Accuracy</div>
+                <div class="stat-value" id="accuracyVal">0%</div>
+              </div>
+            </div>
+
+            <div class="detailed-review">
+              <h3>Question-wise Review</h3>
+              <div id="resultDetails" class="review-list"></div>
+            </div>
+
+            <button id="btnBackToLanding" class="btn-primary">Return to Dashboard</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ─── SCRIPTS ───────────────────────────────────────── -->
+  <script src="data.js"></script>
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="app.js"></script>
+  <script type='text/javascript'>
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+			embeddedservice_bootstrap.init(
+				'00DKZ00000Njokw',
+				'Enhance_Chat_Channel',
+				'https://et1759817986033.my.site.com/ESWEnhanceChatChannel1780649626163',
+				{
+					scrt2URL: 'https://et1759817986033.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
+</script>
+<script type='text/javascript' src='https://et1759817986033.my.site.com/ESWEnhanceChatChannel1780649626163/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+</body>
+
+</html>
